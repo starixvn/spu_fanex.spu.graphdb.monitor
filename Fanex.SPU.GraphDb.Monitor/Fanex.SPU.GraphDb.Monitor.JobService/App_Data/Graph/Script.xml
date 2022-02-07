@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Functions>
+  <Function Name="MonitorNeo4j">
+    <GraphSetting Key="GetMissingCTSCustomer" SpName="GetMissingCTSCustomer" DbName="GraphDB" TimeOut="600"/>
+  </Function>
+</Functions>

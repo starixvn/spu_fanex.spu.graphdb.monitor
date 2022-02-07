@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fanex.Data" Version="4.2.2" />
+    <PackageReference Include="Fanex.Data.Repository" Version="4.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Fanex.SPU.GraphDb.Data">
+      <HintPath>..\..\..\..\..\SPU.Services\Fanex.SPU.GraphDb.Data\bin\Debug\netstandard2.0\Fanex.SPU.GraphDb.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

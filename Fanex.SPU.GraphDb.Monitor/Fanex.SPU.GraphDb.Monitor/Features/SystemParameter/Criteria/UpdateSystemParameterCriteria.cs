@@ -1,0 +1,24 @@
+﻿namespace Fanex.SPU.GraphDb.Monitor.Features.SystemParameter.Criteria
+{
+    using Fanex.Data;
+    using Fanex.Data.Repository;
+
+    public class UpdateSystemParameterCriteria : NonQueryCommand
+    {
+        [SpParam(SqlParamName = "ip_ParamID")]
+        public int ParamId { get; set; }
+
+        [SpParam(SqlParamName = "ip_ParamValue")]
+        public string ParamValue { get; set; }
+
+        public override string GetSettingKey()
+        {
+            return "CTS_DC_SystemParameter_Update";
+        }
+
+        public override bool IsValid()
+        {
+            return true;
+        }
+    }
+}
