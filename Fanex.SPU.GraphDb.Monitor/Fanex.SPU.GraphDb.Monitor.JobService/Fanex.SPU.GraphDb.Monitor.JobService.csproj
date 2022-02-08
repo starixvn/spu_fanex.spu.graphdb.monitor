@@ -46,6 +46,9 @@
     <None Update="App_Data\SQL\SPNames.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Libs\Fanex.SPU.GraphDb.Data.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
