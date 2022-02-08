@@ -3,7 +3,7 @@ WORKDIR /Fanex.SPU.GraphDb.Monitor
 
 COPY ./Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor ./Fanex.SPU.GraphDb.Monitor
 COPY ./Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor.JobService/Fanex.SPU.GraphDb.Monitor.JobService.csproj ./Fanex.SPU.GraphDb.Monitor.JobService/Fanex.SPU.GraphDb.Monitor.JobService.csproj
-COPY ./Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor.JobService/Libs ./Fanex.SPU.GraphDb.Monitor.JobService/Libs
+COPY ./Fanex.SPU.GraphDb.Monitor/Libs ./Libs
 
 WORKDIR /Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor.JobService
 RUN dotnet nuget add source http://nuget.nexdev.net/api/v2

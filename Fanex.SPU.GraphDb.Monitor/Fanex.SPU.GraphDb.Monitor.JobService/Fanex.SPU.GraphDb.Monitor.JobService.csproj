@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <Reference Include="Fanex.SPU.GraphDb.Data">
-      <HintPath>Libs\Fanex.SPU.GraphDb.Data.dll</HintPath>
+      <HintPath>..\Libs\Fanex.SPU.GraphDb.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
 

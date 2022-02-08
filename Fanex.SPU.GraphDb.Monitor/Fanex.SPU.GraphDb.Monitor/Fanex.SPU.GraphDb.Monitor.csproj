@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Reference Include="Fanex.SPU.GraphDb.Data">
-      <HintPath>..\..\..\..\..\SPU.Services\Fanex.SPU.GraphDb.Data\bin\Debug\netstandard2.0\Fanex.SPU.GraphDb.Data.dll</HintPath>
+      <HintPath>..\Libs\Fanex.SPU.GraphDb.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
 
