@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Fanex.Data.MySql" Version="4.2.2" />
+    <PackageReference Include="Fanex.SPU.GraphDb.Data" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
@@ -19,7 +20,7 @@
 
   <ItemGroup>
     <Reference Include="Fanex.SPU.GraphDb.Data">
-      <HintPath>..\..\..\..\..\SPU.Services\Fanex.SPU.GraphDb.Data\bin\Debug\netstandard2.0\Fanex.SPU.GraphDb.Data.dll</HintPath>
+      <HintPath>Libs\Fanex.SPU.GraphDb.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
 
