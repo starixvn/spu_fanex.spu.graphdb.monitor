@@ -1,0 +1,4 @@
+include:
+    - project: "ci/repos-ci/spu_cts_neo4j_monitor_data" # Refer to field CI Script Repo at step #3
+      ref: master
+      file: "gitlab-ci.yml"
