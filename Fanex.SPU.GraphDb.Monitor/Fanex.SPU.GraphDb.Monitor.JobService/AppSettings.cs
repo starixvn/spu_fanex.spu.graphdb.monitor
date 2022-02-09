@@ -13,6 +13,8 @@
 
         int Environment { get; }
 
+        string SentryDsn { get; }
+
     }
 
     public class AppSettings : IAppSettings
@@ -21,6 +23,7 @@
 
         private readonly string environment;
         private readonly string spName;
+        private readonly string sentryDsn;
 
 
 
@@ -30,6 +33,7 @@
 
             environment = GetValue<string>(nameof(Environment));
             spName = GetValue<string>(nameof(SPName));
+            sentryDsn = GetValue<string>("Sentry:Dsn");
         }
 
         public int Environment
@@ -52,7 +56,9 @@
 
         public string SPName => spName;
 
+        public string SentryDsn => sentryDsn;
 
+        #region Methods 
         public T GetValue<T>(string key)
         {
             try
@@ -110,6 +116,6 @@
 
             return section.Get<T>();
         }
-
+        #endregion Methods
     }
 }

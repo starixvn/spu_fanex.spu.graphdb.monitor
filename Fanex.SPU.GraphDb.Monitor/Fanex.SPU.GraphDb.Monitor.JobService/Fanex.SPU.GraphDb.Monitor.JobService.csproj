@@ -6,11 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="Fanex.Data.MySql" Version="4.2.2" />
-    <PackageReference Include="Fanex.SPU.GraphDb.Data" Version="1.0.0" />
+    <PackageReference Include="Fanex.Logging.Extensions.Database" Version="1.0.8" />
+    <PackageReference Include="Fanex.Logging.Sentry" Version="1.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Neo4j.Driver" Version="4.3.2" />
+    <PackageReference Include="Sentry.AspNetCore" Version="2.1.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 

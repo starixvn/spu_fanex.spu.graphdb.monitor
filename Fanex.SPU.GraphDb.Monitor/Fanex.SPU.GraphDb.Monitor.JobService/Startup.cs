@@ -2,6 +2,8 @@ namespace Fanex.SPU.GraphDb.Monitor.JobService
 {
     using Fanex.Data;
     using Fanex.Data.MySql;
+    using Fanex.Logging;
+    using Fanex.Logging.Sentry;
     using Fanex.SPU.GraphDb.Data;
     using Fanex.SPU.GraphDb.Data.Neo4j;
     using Fanex.SPU.GraphDb.Monitor.JobService.Services;
@@ -11,6 +13,8 @@ namespace Fanex.SPU.GraphDb.Monitor.JobService
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
+    using Sentry;
+    using System.Collections.Generic;
     using System.Linq;
 
     public class Startup
@@ -44,6 +48,17 @@ namespace Fanex.SPU.GraphDb.Monitor.JobService
                 .Run();
 
             services.RegisterService();
+
+            LogManager
+                .SetDefaultLogCategory("")
+                .Use(new List<ILogEngine>
+                {
+                     new SentryLogging(new SentryEngineOptions {
+                        Dsn = new Dsn(appSettings.SentryDsn),
+                        Environment = "DEV"
+                     })
+                });
+
             ConfigFanexData(appSettings);
         }
 
