@@ -7,7 +7,9 @@ namespace Fanex.SPU.GraphDb.Monitor.JobService
     using Fanex.SPU.GraphDb.Data;
     using Fanex.SPU.GraphDb.Data.Neo4j;
     using Fanex.SPU.GraphDb.Monitor.JobService.Services;
+    using HealthChecks.UI.Client;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +36,7 @@ namespace Fanex.SPU.GraphDb.Monitor.JobService
 
 
             services.AddControllers();
+            services.AddHealthChecks();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Fanex.SPU.GraphDb.Monitor", Version = "v1" });
@@ -75,6 +78,11 @@ namespace Fanex.SPU.GraphDb.Monitor.JobService
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseHealthChecks("/health", new HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
 
             app.UseAuthorization();
 
