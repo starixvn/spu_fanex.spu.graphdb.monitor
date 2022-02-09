@@ -1,8 +1,8 @@
 FROM registry.nexdev.net:5050/docker/dotnet/core/sdk:5.0.102-ca-patch-buster-slim AS builder
 WORKDIR /Fanex.SPU.GraphDb.Monitor
 
-COPY ./Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor ./Fanex.SPU.GraphDb.Monitor
-COPY ./Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor.JobService/Fanex.SPU.GraphDb.Monitor.JobService.csproj ./Fanex.SPU.GraphDb.Monitor.JobService/Fanex.SPU.GraphDb.Monitor.JobService.csproj
+COPY ./Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor Fanex.SPU.GraphDb.Monitor/
+COPY ./Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor.JobService/Fanex.SPU.GraphDb.Monitor.JobService.csproj Fanex.SPU.GraphDb.Monitor.JobService/
 COPY ./Fanex.SPU.GraphDb.Monitor/Libs ./Libs
 
 WORKDIR /Fanex.SPU.GraphDb.Monitor/Fanex.SPU.GraphDb.Monitor.JobService
