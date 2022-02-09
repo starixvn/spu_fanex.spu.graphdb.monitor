@@ -21,6 +21,8 @@ namespace Fanex.SPU.GraphDb.Monitor.JobService
             catch (Exception ex)
             {
                 SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureMessage("Error Message" + ex.Message + "\n" +
+                    "Inner Message: " + ex.InnerException);
             }
         }
 
