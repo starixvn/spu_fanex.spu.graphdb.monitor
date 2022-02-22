@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Functions>  
+<Functions>
+  <Function name="SystemParameter">
+    <Setting Key="CTS_DC_SystemParameter_Get" SpName="CTS_DC_SystemParameter_Get" DbName="MySQL.CTS_DataCenter.ctsService" />
+    <Setting Key="CTS_DC_SystemParameter_Update" SpName="CTS_DC_SystemParameter_Update" DbName="MySQL.CTS_DataCenter.ctsServiceAdmin" />
+  </Function>
   <Function name="MonitorCTSCustomer">
-		<Setting Key="CTS_DC_SystemParameter_Get" SpName="CTS_DC_SystemParameter_Get" DbName="MySQL.CTS_DataCenter.ctsService" />
-		<Setting Key="CTS_DC_SystemParameter_Update" SpName="CTS_DC_SystemParameter_Update" DbName="MySQL.CTS_DataCenter.ctsServiceAdmin" />
 		<Setting Key="CTS_Log_CTSCustomer_Get" SpName="CTS_Log_CTSCustomer_Get" DbName="MySQL.CTS_Log.ctsService" />
 		<Setting Key="CTS_Log_InsertMissingCusts" SpName="CTS_Log_InsertMissingCusts" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
 	</Function>
+  <Function name="MonitorAssociationByDevice">
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByDevice_Get" SpName="CTS_Log_Monitor_Neo4j_AssByDevice_Get" DbName="MySQL.CTS_Log.ctsService" />
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByDevice_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_AssByDevice_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
+  </Function>
 </Functions>
