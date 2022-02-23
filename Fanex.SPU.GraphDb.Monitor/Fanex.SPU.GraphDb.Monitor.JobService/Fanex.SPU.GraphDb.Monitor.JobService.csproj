@@ -31,6 +31,9 @@
     <None Update="App_Data\Graph\Script.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="App_Data\Graph\scripts\GetMissingAssociationByIP.cypher">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="App_Data\Graph\scripts\GetMissingAssociationByDevice.cypher">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

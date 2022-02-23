@@ -24,7 +24,7 @@
         {
             var lastScannedCTSCustID = ctscustomerService.GetLastScannedCTSCustID(SystemParameters.MonitorNeo4jCustomer_LastScannedCTSCustID);
             var mysqlCusts = ctscustomerService.GetCTSCustomerFromMySQL(lastScannedCTSCustID);
-            if (mysqlCusts.Any())
+            if (mysqlCusts.Any() && mysqlCusts.Count() >= 500)
             {
                 var missingCusts = ctscustomerService.GetMissingCTSCustomer(mysqlCusts);
                 if (missingCusts.Any())

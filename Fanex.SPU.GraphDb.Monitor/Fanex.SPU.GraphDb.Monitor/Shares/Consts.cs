@@ -11,7 +11,8 @@
         public enum SystemParameters
         {
             MonitorNeo4jCustomer_LastScannedCTSCustID = 68,
-            MonitorNeo4jCustomer_LastScannedCTSAssDevID = 71
+            MonitorNeo4jCustomer_LastScannedCTSAssDevID = 71,
+            MonitorNeo4jCustomer_LastScannedIDAssByIP = 72
         };
     }
 }

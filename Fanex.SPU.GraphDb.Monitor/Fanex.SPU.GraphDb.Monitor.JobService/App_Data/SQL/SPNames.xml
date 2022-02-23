@@ -12,4 +12,8 @@
     <Setting Key="CTS_Log_Monitor_Neo4j_AssByDevice_Get" SpName="CTS_Log_Monitor_Neo4j_AssByDevice_Get" DbName="MySQL.CTS_Log.ctsService" />
     <Setting Key="CTS_Log_Monitor_Neo4j_AssByDevice_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_AssByDevice_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
   </Function>
+  <Function name="MonitorAssociationByIP">
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByIP_Get" SpName="CTS_Log_Monitor_Neo4j_AssByIP_Get" DbName="MySQL.CTS_Log.ctsService" />
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByIP_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_AssByIP_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
+  </Function>
 </Functions>

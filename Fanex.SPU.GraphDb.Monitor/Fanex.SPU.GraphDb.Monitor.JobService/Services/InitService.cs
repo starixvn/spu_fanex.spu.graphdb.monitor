@@ -24,6 +24,7 @@
             services.AddSingleton<ICTSCustomerDataAccess, CTSCustomerDataAccess>();
             services.AddSingleton<ISystemParameterDataAccess, SystemParameterDataAccess>();
         }
+
         private static void RegisterMonitorAssociationJobService(this IServiceCollection services)
         {
             services.AddSingleton<IMonitorAssociationJobService, MonitorAssociationJobService>();

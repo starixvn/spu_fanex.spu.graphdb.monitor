@@ -8,6 +8,8 @@
     public interface IMonitorAssociationJobService
     {
         Task<bool> MonitorAssociationByDevice();
+
+        Task<bool> MonitorAssociationByIP();
     }
 
     public class MonitorAssociationJobService : IMonitorAssociationJobService
@@ -26,7 +28,7 @@
         {
             int lastScannedCTSAssDevID = sysParamService.GetValueFromParamID(SystemParameters.MonitorNeo4jCustomer_LastScannedCTSAssDevID);
             var assByDeviceFromMySQL = associationService.GetAssociationByDeviceFromMySql(lastScannedCTSAssDevID);
-            if (assByDeviceFromMySQL.Any())
+            if (assByDeviceFromMySQL.Any() && assByDeviceFromMySQL.Count() >= 500)
             {
                 var missingAssByDev = associationService.GetMissingAssociationByDevice(assByDeviceFromMySQL);
                 if (missingAssByDev.Any())
@@ -36,6 +38,25 @@
 
                 var maxScannedCTSAssDevID = assByDeviceFromMySQL.Max(c => c.CTSAssDevID);
                 sysParamService.UpdateValueByParamID(maxScannedCTSAssDevID, SystemParameters.MonitorNeo4jCustomer_LastScannedCTSAssDevID);
+            }
+
+            return Task.FromResult(true);
+        }
+
+        public Task<bool> MonitorAssociationByIP()
+        {
+            int lastScannedIDAssByIP = sysParamService.GetValueFromParamID(SystemParameters.MonitorNeo4jCustomer_LastScannedIDAssByIP);
+            var assByIPFromMySQL = associationService.GetAssociationByIPFromMySql(lastScannedIDAssByIP);
+            if (assByIPFromMySQL.Any() && assByIPFromMySQL.Count() >= 500)
+            {
+                var missingAssByIP = associationService.GetMissingAssociationByIP(assByIPFromMySQL);
+                if (missingAssByIP.Any())
+                {
+                    associationService.InsertMissingAssByIP(missingAssByIP);
+                }
+
+                var maxScannedIDAssByIP = assByIPFromMySQL.Max(c => c.AssByIpID);
+                sysParamService.UpdateValueByParamID(maxScannedIDAssByIP, SystemParameters.MonitorNeo4jCustomer_LastScannedIDAssByIP);
             }
 
             return Task.FromResult(true);

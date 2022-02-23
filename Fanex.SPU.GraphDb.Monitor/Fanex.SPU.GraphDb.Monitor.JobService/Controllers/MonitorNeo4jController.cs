@@ -30,5 +30,11 @@
         {
             return await associationJobService.MonitorAssociationByDevice();
         }
+
+        [HttpPost("MonitorAssociationByIP")]
+        public async Task<bool> MonitorAssociationByIP()
+        {
+            return await associationJobService.MonitorAssociationByIP();
+        }
     }
 }

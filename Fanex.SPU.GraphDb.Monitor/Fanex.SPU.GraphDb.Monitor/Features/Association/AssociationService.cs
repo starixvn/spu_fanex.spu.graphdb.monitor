@@ -6,12 +6,13 @@
 
     public interface IAssociationService
     {
-
         IEnumerable<AssByDeviceModel> GetAssociationByDeviceFromMySql(int lastCTSAssDevID);
-
         IEnumerable<AssByDeviceModel> GetMissingAssociationByDevice(IEnumerable<AssByDeviceModel> mysqlAssByDev);
-
         void InsertMissingAssByDevice(IEnumerable<AssByDeviceModel> missingAss);
+
+        IEnumerable<AssByIpModel> GetMissingAssociationByIP(IEnumerable<AssByIpModel> mysqlAssByIP);
+        IEnumerable<AssByIpModel> GetAssociationByIPFromMySql(int lastIDAssByIP);
+        void InsertMissingAssByIP(IEnumerable<AssByIpModel> missingAss);
 
     }
 
@@ -23,6 +24,8 @@
         {
             this.associationDataAccess = associationDataAccess;
         }
+
+        #region Association By Device
 
         public IEnumerable<AssByDeviceModel> GetAssociationByDeviceFromMySql(int lastCTSAssDevID)
         {
@@ -39,5 +42,27 @@
             var assJson = JsonConvert.SerializeObject(missingAss);
             associationDataAccess.InsertMissingAssByDevice(assJson);
         }
+
+        #endregion
+
+        #region Association By IP
+
+        public IEnumerable<AssByIpModel> GetAssociationByIPFromMySql(int lastIDAssByIP)
+        {
+            return associationDataAccess.GetAssByIPFromMySql(lastIDAssByIP, 500);
+        }
+        
+        public IEnumerable<AssByIpModel> GetMissingAssociationByIP(IEnumerable<AssByIpModel> mysqlAssByIP)
+        {
+            return associationDataAccess.GetMissingAssociationByIP(mysqlAssByIP);
+        }
+
+        public void InsertMissingAssByIP(IEnumerable<AssByIpModel> missingAss)
+        {
+            var assJson = JsonConvert.SerializeObject(missingAss);
+            associationDataAccess.InsertMissingAssByIP(assJson);
+        }
+
+        #endregion
     }
 }
