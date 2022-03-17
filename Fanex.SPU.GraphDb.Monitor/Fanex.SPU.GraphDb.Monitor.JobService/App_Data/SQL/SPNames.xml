@@ -5,9 +5,9 @@
     <Setting Key="CTS_DC_SystemParameter_Update" SpName="CTS_DC_SystemParameter_Update" DbName="MySQL.CTS_DataCenter.ctsServiceAdmin" />
   </Function>
   <Function name="MonitorCTSCustomer">
-		<Setting Key="CTS_Log_CTSCustomer_Get" SpName="CTS_Log_CTSCustomer_Get" DbName="MySQL.CTS_Log.ctsService" />
-		<Setting Key="CTS_Log_InsertMissingCusts" SpName="CTS_Log_InsertMissingCusts" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
-	</Function>
+    <Setting Key="CTS_Log_CTSCustomer_Get" SpName="CTS_Log_CTSCustomer_Get" DbName="MySQL.CTS_Log.ctsService" />
+    <Setting Key="CTS_Log_InsertMissingCusts" SpName="CTS_Log_InsertMissingCusts" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
+  </Function>
   <Function name="MonitorAssociationByDevice">
     <Setting Key="CTS_Log_Monitor_Neo4j_AssByDevice_Get" SpName="CTS_Log_Monitor_Neo4j_AssByDevice_Get" DbName="MySQL.CTS_Log.ctsService" />
     <Setting Key="CTS_Log_Monitor_Neo4j_AssByDevice_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_AssByDevice_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
@@ -15,5 +15,17 @@
   <Function name="MonitorAssociationByIP">
     <Setting Key="CTS_Log_Monitor_Neo4j_AssByIP_Get" SpName="CTS_Log_Monitor_Neo4j_AssByIP_Get" DbName="MySQL.CTS_Log.ctsService" />
     <Setting Key="CTS_Log_Monitor_Neo4j_AssByIP_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_AssByIP_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
+  </Function>
+  <Function name="MonitorAssociationByManual">
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByManual_Get" SpName="CTS_Log_Monitor_Neo4j_AssByManual_Get" DbName="MySQL.CTS_Log.ctsService" />
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByManual_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_AssByManual_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
+  </Function>
+  <Function name="MonitorAssociationByAI">
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByAI_Get" SpName="CTS_Log_Monitor_Neo4j_AssByAI_Get" DbName="MySQL.CTS_Log.ctsService" />
+    <Setting Key="CTS_Log_Monitor_Neo4j_AssByAI_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_AssByAI_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
+  </Function>
+  <Function name="MonitorCustClassification">
+    <Setting Key="CTS_Log_Monitor_Neo4j_CustClassification_Get" SpName="CTS_Log_Monitor_Neo4j_CustClassification_Get" DbName="MySQL.CTS_Log.ctsService" />
+    <Setting Key="CTS_Log_Monitor_Neo4j_CustClassification_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_CustClassification_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
   </Function>
 </Functions>

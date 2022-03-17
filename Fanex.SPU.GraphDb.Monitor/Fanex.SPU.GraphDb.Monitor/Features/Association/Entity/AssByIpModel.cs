@@ -1,5 +1,4 @@
-﻿
-namespace Fanex.SPU.GraphDb.Monitor.Features.Association.Entity
+﻿namespace Fanex.SPU.GraphDb.Monitor.Features.Association.Entity
 {
     public class AssByIpModel
     {

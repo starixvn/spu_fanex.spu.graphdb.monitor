@@ -14,6 +14,14 @@
         IEnumerable<AssByIpModel> GetAssociationByIPFromMySql(int lastIDAssByIP);
         void InsertMissingAssByIP(IEnumerable<AssByIpModel> missingAss);
 
+        void InsertMissingAssByAI(IEnumerable<AssByAIModel> missingAss);
+        IEnumerable<AssByAIModel> GetMissingAssociationByAI(IEnumerable<AssByAIModel> mysqlAssByAI);
+        IEnumerable<AssByAIModel> GetAssociationByAIFromMySql(int lastIDAssByAI);
+
+        void InsertMissingAssByManual(IEnumerable<AssByManualModel> missingAss);
+        IEnumerable<AssByManualModel> GetMissingAssociationByManual(IEnumerable<AssByManualModel> mysqlAssByManual);
+        IEnumerable<AssByManualModel> GetAssociationByManualFromMySql(int lastIDAssByManual);
+
     }
 
     public class AssociationService : IAssociationService
@@ -61,6 +69,44 @@
         {
             var assJson = JsonConvert.SerializeObject(missingAss);
             associationDataAccess.InsertMissingAssByIP(assJson);
+        }
+
+        #endregion
+
+        #region Association By AI
+        public IEnumerable<AssByAIModel> GetAssociationByAIFromMySql(int lastIDAssByAI)
+        {
+            return associationDataAccess.GetAssByAIFromMySql(lastIDAssByAI, 500);
+        }
+        
+        public IEnumerable<AssByAIModel> GetMissingAssociationByAI(IEnumerable<AssByAIModel> mysqlAssByAI)
+        {
+            return associationDataAccess.GetMissingAssociationByAI(mysqlAssByAI);
+        }
+
+        public void InsertMissingAssByAI(IEnumerable<AssByAIModel> missingAss)
+        {
+            var assJson = JsonConvert.SerializeObject(missingAss);
+            associationDataAccess.InsertMissingAssByAI(assJson);
+        }
+
+        #endregion
+
+        #region Association By Manual
+        public IEnumerable<AssByManualModel> GetAssociationByManualFromMySql(int lastIDAssByManual)
+        {
+            return associationDataAccess.GetAssByManualFromMySql(lastIDAssByManual, 500);
+        }
+        
+        public IEnumerable<AssByManualModel> GetMissingAssociationByManual(IEnumerable<AssByManualModel> mysqlAssByManual)
+        {
+            return associationDataAccess.GetMissingAssociationByManual(mysqlAssByManual);
+        }
+
+        public void InsertMissingAssByManual(IEnumerable<AssByManualModel> missingAss)
+        {
+            var assJson = JsonConvert.SerializeObject(missingAss);
+            associationDataAccess.InsertMissingAssByManual(assJson);
         }
 
         #endregion

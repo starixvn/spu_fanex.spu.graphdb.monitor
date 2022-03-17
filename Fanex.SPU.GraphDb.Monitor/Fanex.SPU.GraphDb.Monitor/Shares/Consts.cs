@@ -12,7 +12,10 @@
         {
             MonitorNeo4jCustomer_LastScannedCTSCustID = 68,
             MonitorNeo4jCustomer_LastScannedCTSAssDevID = 71,
-            MonitorNeo4jCustomer_LastScannedIDAssByIP = 72
+            MonitorNeo4jCustomer_LastScannedIDAssByIP = 72,
+            MonitorNeo4jCustomer_LastScannedIDAssByAI = 73,
+            MonitorNeo4jCustomer_LastScannedIDAssByManual = 74,
+            MonitorNeo4jClassification_LastScannedCustID = 75
         };
     }
 }

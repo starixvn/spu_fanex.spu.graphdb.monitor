@@ -3,5 +3,8 @@
   <Function Name="MonitorNeo4j">
     <GraphSetting Key="GetMissingCTSCustomer" SpName="GetMissingCTSCustomer" DbName="GraphDB" TimeOut="600"/>
     <GraphSetting Key="GetMissingAssociationByDevice" SpName="GetMissingAssociationByDevice" DbName="GraphDB" TimeOut="600"/>
+    <GraphSetting Key="GetMissingAssociationByIP" SpName="GetMissingAssociationByIP" DbName="GraphDB" TimeOut="600"/>
+    <GraphSetting Key="GetMissingAssociationByAI" SpName="GetMissingAssociationByAI" DbName="GraphDB" TimeOut="600"/>
+    <GraphSetting Key="GetMissingAssociationByManual" SpName="GetMissingAssociationByManual" DbName="GraphDB" TimeOut="600"/>
   </Function>
 </Functions>

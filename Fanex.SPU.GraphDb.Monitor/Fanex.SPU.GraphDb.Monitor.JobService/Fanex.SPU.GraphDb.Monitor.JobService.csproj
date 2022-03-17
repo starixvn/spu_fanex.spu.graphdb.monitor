@@ -31,6 +31,15 @@
     <None Update="App_Data\Graph\Script.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="App_Data\Graph\scripts\GetMissingCustClassification.cypher">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="App_Data\Graph\scripts\GetMissingAssociationByManual.cypher">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="App_Data\Graph\scripts\GetMissingAssociationByAI.cypher">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="App_Data\Graph\scripts\GetMissingAssociationByIP.cypher">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

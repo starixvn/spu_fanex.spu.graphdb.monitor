@@ -10,6 +10,9 @@
         Task<bool> MonitorAssociationByDevice();
 
         Task<bool> MonitorAssociationByIP();
+
+        Task<bool> MonitorAssociationByManual();
+        Task<bool> MonitorAssociationByAI();
     }
 
     public class MonitorAssociationJobService : IMonitorAssociationJobService
@@ -57,6 +60,44 @@
 
                 var maxScannedIDAssByIP = assByIPFromMySQL.Max(c => c.AssByIpID);
                 sysParamService.UpdateValueByParamID(maxScannedIDAssByIP, SystemParameters.MonitorNeo4jCustomer_LastScannedIDAssByIP);
+            }
+
+            return Task.FromResult(true);
+        }
+        
+        public Task<bool> MonitorAssociationByAI()
+        {
+            int lastScannedIDAssByAI = sysParamService.GetValueFromParamID(SystemParameters.MonitorNeo4jCustomer_LastScannedIDAssByAI);
+            var assByAIFromMySQL = associationService.GetAssociationByAIFromMySql(lastScannedIDAssByAI);
+            if (assByAIFromMySQL.Any() && assByAIFromMySQL.Count() >= 500)
+            {
+                var missingAssByAI = associationService.GetMissingAssociationByAI(assByAIFromMySQL);
+                if (missingAssByAI.Any())
+                {
+                    associationService.InsertMissingAssByAI(missingAssByAI);
+                }
+
+                var maxScannedIDAssByIP = assByAIFromMySQL.Max(c => c.AssID);
+                sysParamService.UpdateValueByParamID(maxScannedIDAssByIP, SystemParameters.MonitorNeo4jCustomer_LastScannedIDAssByAI);
+            }
+
+            return Task.FromResult(true);
+        }
+
+        public Task<bool> MonitorAssociationByManual()
+        {
+            int lastScannedIDAssByManual = sysParamService.GetValueFromParamID(SystemParameters.MonitorNeo4jCustomer_LastScannedIDAssByManual);
+            var assByManualFromMySQL = associationService.GetAssociationByManualFromMySql(lastScannedIDAssByManual);
+            if (assByManualFromMySQL.Any() && assByManualFromMySQL.Count() >= 200)
+            {
+                var missingAssByManual = associationService.GetMissingAssociationByManual(assByManualFromMySQL);
+                if (missingAssByManual.Any())
+                {
+                    associationService.InsertMissingAssByManual(missingAssByManual);
+                }
+
+                var maxScannedIDAssByIP = assByManualFromMySQL.Max(c => c.AssID);
+                sysParamService.UpdateValueByParamID(maxScannedIDAssByIP, SystemParameters.MonitorNeo4jCustomer_LastScannedIDAssByManual);
             }
 
             return Task.FromResult(true);

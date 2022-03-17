@@ -36,5 +36,17 @@
         {
             return await associationJobService.MonitorAssociationByIP();
         }
+
+        [HttpPost("MonitorAssociationByAI")]
+        public async Task<bool> MonitorAssociationByAI()
+        {
+            return await associationJobService.MonitorAssociationByAI();
+        }
+
+        [HttpPost("MonitorAssociationByManual")]
+        public async Task<bool> MonitorAssociationByManual()
+        {
+            return await associationJobService.MonitorAssociationByManual();
+        }
     }
 }

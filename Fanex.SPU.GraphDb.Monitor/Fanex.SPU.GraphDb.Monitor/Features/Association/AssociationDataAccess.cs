@@ -19,6 +19,17 @@
         public void InsertMissingAssByIP(string assByIPJson);
 
         IEnumerable<AssByIpModel> GetAssByIPFromMySql(int lastIDAssByIP, int batchSize);
+
+        IEnumerable<AssByAIModel> GetAssByAIFromMySql(int lastIDAssByAI, int batchSize);
+
+        void InsertMissingAssByAI(string assByAIJson);
+
+        IEnumerable<AssByAIModel> GetMissingAssociationByAI(IEnumerable<AssByAIModel> listAssByAI);
+
+        IEnumerable<AssByManualModel> GetMissingAssociationByManual(IEnumerable<AssByManualModel> listAssByManual);
+        void InsertMissingAssByManual(string assByManualJson);
+        IEnumerable<AssByManualModel> GetAssByManualFromMySql(int lastIDAssByManual, int batchSize);
+
     }
 
     public class AssociationDataAccess : IAssociationDataAccess
@@ -95,6 +106,74 @@
             }).Data;
 
             return missingAssByIP;
+        }
+        #endregion
+
+        #region AssociationByAI
+        public IEnumerable<AssByAIModel> GetAssByAIFromMySql(int lastIDAssByAI, int batchSize)
+        {
+            var criteria = new GetAssByAICriteria
+            {
+                IDAssByAI = lastIDAssByAI,
+                BatchSize = batchSize
+            };
+
+            return repository.Fetch<AssByAIModel>(criteria);
+        }
+        
+        public void InsertMissingAssByAI(string assByAIJson)
+        {
+            var criteria = new InsertMissingAssByAICriteria
+            {
+                AssByAIListJson = assByAIJson
+            };
+
+            repository.Execute(criteria);
+        }
+
+        public IEnumerable<AssByAIModel> GetMissingAssociationByAI(IEnumerable<AssByAIModel> listAssByAI)
+        {
+
+            var missingAssByAI = DbSessionFactory.Execute<AssByAIModel>("GetMissingAssociationByAI", new
+            {
+                Ass = listAssByAI
+            }).Data;
+
+            return missingAssByAI;
+        }
+        #endregion
+
+        #region AssociationByManual
+        public IEnumerable<AssByManualModel> GetAssByManualFromMySql(int lastIDAssByManual, int batchSize)
+        {
+            var criteria = new GetAssByManualCriteria
+            {
+                IDAssByManual = lastIDAssByManual,
+                BatchSize = batchSize
+            };
+
+            return repository.Fetch<AssByManualModel>(criteria);
+        }
+        
+        public void InsertMissingAssByManual(string assByManualJson)
+        {
+            var criteria = new InsertMissingAssByManualCriteria
+            {
+                AssByManualListJson = assByManualJson
+            };
+
+            repository.Execute(criteria);
+        }
+
+        public IEnumerable<AssByManualModel> GetMissingAssociationByManual(IEnumerable<AssByManualModel> listAssByManual)
+        {
+
+            var missingAssByManual = DbSessionFactory.Execute<AssByManualModel>("GetMissingAssociationByManual", new
+            {
+                Ass = listAssByManual
+            }).Data;
+
+            return missingAssByManual;
         }
         #endregion
     }
