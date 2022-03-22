@@ -2,6 +2,7 @@
 {
     using Fanex.SPU.GraphDb.Monitor.Features.Association;
     using Fanex.SPU.GraphDb.Monitor.Features.CTSCustomer;
+    using Fanex.SPU.GraphDb.Monitor.Features.CustClassification;
     using Fanex.SPU.GraphDb.Monitor.Features.SystemParameter;
     using Microsoft.Extensions.DependencyInjection;
     using System;
@@ -15,6 +16,7 @@
         {
             RegisterMonitorCTSCustomerJobService(services);
             RegisterMonitorAssociationJobService(services);
+            RegisterMonitorCustClassificationJobService(services);
         }
 
         private static void RegisterMonitorCTSCustomerJobService(this IServiceCollection services)
@@ -31,6 +33,14 @@
             services.AddSingleton<IAssociationService, AssociationService>();
             services.AddSingleton<ISystemParameterService, SystemParameterService>();
             services.AddSingleton<IAssociationDataAccess, AssociationDataAccess>();
+        }
+        
+        private static void RegisterMonitorCustClassificationJobService(this IServiceCollection services)
+        {
+            services.AddSingleton<IMonitorCustClassificationJobService, MonitorCustClassificationJobService>();
+            services.AddSingleton<ICustomerClassificationService, CustomerClassificationService>();
+            services.AddSingleton<ISystemParameterService, SystemParameterService>();
+            services.AddSingleton<ICustomerClassificationDataAccess, CustomerClassificationDataAccess>();
         }
     }
 }

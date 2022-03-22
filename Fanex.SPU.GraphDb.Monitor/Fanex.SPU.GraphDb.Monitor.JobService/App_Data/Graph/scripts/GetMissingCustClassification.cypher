@@ -1,6 +1,8 @@
 ﻿UNWIND $CustClassification AS custClassification
-OPTIONAL MATCH (c:CTSCustomer)-[r:USED_DEVICE]->(d:Device)
-WHERE c.CTSCustID=ctsAssByDev.CTSCustID AND d.DeviceID=ctsAssByDev.DeviceID
-WITH c.CTSCustID AS CTSCustID, ctsAssByDev.CTSCustID AS MissingCTSCustID, ctsAssByDev.DeviceID AS MissingDeviceID, ctsAssByDev.CTSAssDevID AS CTSAssDevID
-WHERE CTSCustID IS NULL
-RETURN MissingCTSCustID AS CTSCustID, MissingDeviceID AS DeviceID, CTSAssDevID
+OPTIONAL MATCH (c:CTSCustomer)-[r:HAS_CATEGORY]->(ct:CustomerCategory)
+WHERE c.CustID=custClassification.CustID 
+	AND c.CustSubID = 0 
+	AND ct.CategoryID = custClassification.CategoryID
+WITH c.CustID AS CustID, custClassification.CustID AS MissingCustID, custClassification.CategoryID AS MissingCategoryID, custClassification.CategoryID AS CategoryID
+WHERE CustID IS NULL
+RETURN MissingCustID AS CustID, MissingCategoryID AS CategoryID

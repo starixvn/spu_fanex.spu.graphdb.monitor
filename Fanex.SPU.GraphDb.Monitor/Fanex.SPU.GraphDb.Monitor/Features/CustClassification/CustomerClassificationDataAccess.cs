@@ -53,7 +53,7 @@
 
         public IEnumerable<CustomerClassificationModel> GetMissingCustClassificationFromNeo4j(IEnumerable<CustomerClassificationModel> listCustClassification)
         {
-            var missingCustClassification = DbSessionFactory.Execute<CustomerClassificationModel>("GetMissingAssociationByDevice", new
+            var missingCustClassification = DbSessionFactory.Execute<CustomerClassificationModel>("GetMissingCustClassification", new
             {
                 CustClassification = listCustClassification
             }).Data;
