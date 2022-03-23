@@ -7,7 +7,7 @@
     {
         int GetValueFromParamID(SystemParameters paraID);
 
-        void UpdateValueByParamID(int value, SystemParameters paraID);
+        void UpdateValueByParamID(long value, SystemParameters paraID);
 
     }
 
@@ -26,7 +26,7 @@
             return value != null ? int.Parse(value?.ParameterValue) : 0;
         }
 
-        public void UpdateValueByParamID(int value, SystemParameters paraID)
+        public void UpdateValueByParamID(long value, SystemParameters paraID)
         {
             systemParameterDataAccess.UpdateSystemParameter(value.ToString(), paraID);
         }

@@ -7,5 +7,6 @@
     <GraphSetting Key="GetMissingAssociationByAI" SpName="GetMissingAssociationByAI" DbName="GraphDB" TimeOut="600"/>
     <GraphSetting Key="GetMissingAssociationByManual" SpName="GetMissingAssociationByManual" DbName="GraphDB" TimeOut="600"/>
     <GraphSetting Key="GetMissingCustClassification" SpName="GetMissingCustClassification" DbName="GraphDB" TimeOut="600"/>
+    <GraphSetting Key="GetMissingCustEvidence" SpName="GetMissingCustEvidence" DbName="GraphDB" TimeOut="600"/>
   </Function>
 </Functions>

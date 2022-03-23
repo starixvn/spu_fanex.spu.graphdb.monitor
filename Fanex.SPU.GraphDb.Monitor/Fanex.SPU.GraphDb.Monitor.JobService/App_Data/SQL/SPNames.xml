@@ -28,4 +28,9 @@
     <Setting Key="CTS_Log_Monitor_Neo4j_CustClassification_Get" SpName="CTS_Log_Monitor_Neo4j_CustClassification_Get" DbName="MySQL.CTS_Log.ctsService" />
     <Setting Key="CTS_Log_Monitor_Neo4j_CustClassification_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_CustClassification_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
   </Function>
+  
+  <Function name="MonitorCustClassification">
+    <Setting Key="CTS_Log_Monitor_Neo4j_CustEvidence_Get" SpName="CTS_Log_Monitor_Neo4j_CustEvidence_Get" DbName="MySQL.CTS_Log.ctsService" />
+    <Setting Key="CTS_Log_Monitor_Neo4j_CustEvidence_InsertMissing" SpName="CTS_Log_Monitor_Neo4j_CustEvidence_InsertMissing" DbName="MySQL.CTS_Log.ctsServiceAdmin" />
+  </Function>
 </Functions>

@@ -15,7 +15,8 @@
             MonitorNeo4jCustomer_LastScannedIDAssByIP = 72,
             MonitorNeo4jCustomer_LastScannedIDAssByAI = 73,
             MonitorNeo4jCustomer_LastScannedIDAssByManual = 74,
-            MonitorNeo4jClassification_LastScannedCustID = 75
+            MonitorNeo4jClassification_LastScannedCustID = 75,
+            MonitorNeo4jCustEvidence_LastScannedCustEvidID = 82
         };
     }
 }

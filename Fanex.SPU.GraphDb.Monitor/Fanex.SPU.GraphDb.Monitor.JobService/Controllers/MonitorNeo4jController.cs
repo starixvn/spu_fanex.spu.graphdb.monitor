@@ -11,15 +11,18 @@
         private readonly IMonitorCTSCustomerJobService ctsCustomerJobService;
         private readonly IMonitorAssociationJobService associationJobService;
         private readonly IMonitorCustClassificationJobService custClassificationJobService;
+        private readonly IMonitorCustEvidenceJobService custEvidenceJobService;
 
         public MonitorNeo4jController(
             IMonitorCTSCustomerJobService ctsCustomerJobService,
             IMonitorAssociationJobService associationJobService,
-            IMonitorCustClassificationJobService custClassificationJobService)
+            IMonitorCustClassificationJobService custClassificationJobService,
+            IMonitorCustEvidenceJobService custEvidenceJobService)
         {
             this.ctsCustomerJobService = ctsCustomerJobService;
             this.associationJobService = associationJobService;
             this.custClassificationJobService = custClassificationJobService;
+            this.custEvidenceJobService = custEvidenceJobService;
 
         }
 
@@ -57,6 +60,12 @@
         public async Task<bool> MonitorCustClassification()
         {
             return await custClassificationJobService.MonitorCustomerClassification();
+        }
+        
+        [HttpPost("MonitorCustomerEvidence")]
+        public async Task<bool> MonitorCustomerEvidence()
+        {
+            return await custEvidenceJobService.MonitorCustomerEvidence();
         }
     }
 }
