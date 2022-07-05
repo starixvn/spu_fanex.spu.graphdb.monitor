@@ -1,0 +1,1 @@
+﻿MATCH (c:CTSCustomer) RETURN MAX(c.CTSCustID) AS MaxCTSCustID

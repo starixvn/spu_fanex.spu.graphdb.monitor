@@ -1,13 +1,11 @@
 ﻿namespace Fanex.SPU.GraphDb.Monitor.Features.CTSCustomer
 {
     using Fanex.SPU.GraphDb.Monitor.Features.CTSCustomer.Entity;
+    using Fanex.SPU.GraphDb.Monitor.Features.MonitorReplication;
     using Fanex.SPU.GraphDb.Monitor.Features.SystemParameter;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using static Fanex.SPU.GraphDb.Monitor.Shares.Consts;
 
     public interface ICTSCustomerService
@@ -21,6 +19,12 @@
         IEnumerable<CTSCustomerModel> GetMissingCTSCustomer(IEnumerable<CTSCustomerModel> mysqlCTSCustList);
 
         void InsertMissingCTSCustomer(IEnumerable<CTSCustomerModel> missingCusts, DateTime scannedDate);
+
+        DbStatistic CheckSumAndCountTotal_MySQL(long maxCTSCustID, int maxCustID);
+
+        DbStatistic CheckSumAndCountTotal_Neo4j(long maxCTSCustID);
+
+        long GetMaxCTSCustIDInNeo4j();
 
     }
 
@@ -56,6 +60,21 @@
         {
 
             return ctsCustomerdataAccess.GetCTSCustomerFromNeo4j(mysqlCTSCustList);
+        }
+        
+        public DbStatistic CheckSumAndCountTotal_MySQL(long maxCTSCustID, int maxCustID)
+        {
+            return ctsCustomerdataAccess.CheckSumAndCountTotal_MySQL(maxCTSCustID, maxCustID);
+        }
+        
+        public DbStatistic CheckSumAndCountTotal_Neo4j(long maxCTSCustID)
+        {
+            return ctsCustomerdataAccess.CheckSumAndCountTotal_Neo4j(maxCTSCustID);
+        }
+        
+        public long GetMaxCTSCustIDInNeo4j()
+        {
+            return ctsCustomerdataAccess.GetMaxCTSCustIDInNeo4j();
         }
         
         public void InsertMissingCTSCustomer(IEnumerable<CTSCustomerModel> missingCusts, DateTime scannedDate)

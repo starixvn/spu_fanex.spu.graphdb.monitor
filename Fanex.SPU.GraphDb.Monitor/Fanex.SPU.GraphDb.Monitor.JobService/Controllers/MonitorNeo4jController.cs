@@ -32,6 +32,12 @@
             return await ctsCustomerJobService.MonitorCTSCustomerNode();
         }
         
+        [HttpPost("CheckDataConsistency")]
+        public async Task<bool> CheckDataConsistencyNeo4j()
+        {
+            return await ctsCustomerJobService.CheckDataConsistencyNeo4j();
+        }
+        
         [HttpPost("MonitorAssociationByDevice")]
         public async Task<bool> MonitorAssociationByDevice()
         {

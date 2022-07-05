@@ -8,5 +8,7 @@
     <GraphSetting Key="GetMissingAssociationByManual" SpName="GetMissingAssociationByManual" DbName="GraphDB" TimeOut="600"/>
     <GraphSetting Key="GetMissingCustClassification" SpName="GetMissingCustClassification" DbName="GraphDB" TimeOut="600"/>
     <GraphSetting Key="GetMissingCustEvidence" SpName="GetMissingCustEvidence" DbName="GraphDB" TimeOut="600"/>
+    <GraphSetting Key="GetMaxCTSCustID" SpName="GetMaxCTSCustID" DbName="GraphDB"/>
+    <GraphSetting Key="GetSumAndCountTotal_Neo4j" SpName="GetSumAndCountTotal_Neo4j" DbName="GraphDB" TimeOut="1800"/>
   </Function>
 </Functions>
